@@ -1,0 +1,13 @@
+#register .left {
+    background-image: url("../img/gambarLogin.svg");
+    background-size: cover;
+    height: 700px;
+  }
+  
+  #register .bg {
+    background-color: #276561;
+  }
+
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #ffffff !important; color: #276561;
+}

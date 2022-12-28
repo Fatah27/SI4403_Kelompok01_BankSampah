@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Diki Ilham Firmansyah </title>
+<title>Login</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
-<link rel="stylesheet" href="../style/index.css">
+<link rel="stylesheet" href="../style/loginStyle.css">
 </head>
 <body >
 <section id="register">
@@ -13,10 +13,21 @@
         <div class="col-md-6 min-vh-100 left" style="background-color: white;"></div>
         <div class="col-md-6 " style="color: white;">
             <div class="form-login m-auto ps-5 ">
-                <h2 class="fw-bold ">Get’s started.</h2>
-                <p class="small fw-bold ">Already have an account? Log in <a href="login-diki.php"
-                        class="link-dark">Login</a></p>
-                <form action="" method="post">
+                <h2 class="fw-bold ">Login.</h2>
+                <!-- Login With -->
+                <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+                    <li>
+                        <a class="btn btn-primary btn-lg btn-block" style="background-color: #fe0000" href="#!" role="button">
+                        <i class="fab fa-facebook-f me-2"></i>Sign in with Google</a>
+                    </li>
+                    
+                    <li>
+                        <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!" role="button">
+                        <i class="fab fa-facebook-f me-2"></i>Sign in with Facebook</a>
+                    </li>
+                </ul>
+  
+                
                 <!-- Email input -->
                 <div class="mb-3 position-relative">
                     <label class="form-label " for="email">Email address</label>
@@ -25,20 +36,7 @@
                     placeholder="masukan email" />
                     
                 </div>
-                <!-- nama input -->
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="nama">Nama</label>
-                    <span class="required" style="top: 0px; left: 41px;">*</span>
-                    <input type="nama" id="nama" class="form-control form-control-lg" name="nama"
-                    placeholder="masukan nama" />
-                </div>
-                <!-- no hp input -->
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="no">No Hp</label>
-                    <span class="required" style="top: 0px; left: 41px;">*</span>
-                    <input type="no" id="no" class="form-control form-control-lg" name="no"
-                    placeholder="masukan No Hp" />
-                </div>
+                
                 <!-- Password input -->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="password">Password</label>
@@ -46,17 +44,17 @@
                     <input type="password" id="password" class="form-control form-control-lg" name="password"
                     placeholder="masukan password" />
                 </div>
+                <!-- Check Box -->
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                  </div>
+                
+                <!-- Login Button -->
                 <div class="form-outline mb-4">
-                <!-- Password input -->
-                <div class="form-outline mb-3">
-                    <label class="form-label" for="password2">konfirmasi Password</label>
-                    <span class="required" style="top: 0px; left: 41px;">*</span>
-                    <input type="password" id="password2" class="form-control form-control-lg" name="password2"
-                    placeholder="masukan ulang password" />
-                </div>
                 <div class="text-center text-lg-start mt-4 pt-2">
                     <button type="submit" name="daftar" class="btn btn-primary btn-lg"
-                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Daftar</button>
+                    style="padding-left: 2.5rem; padding-right: 2.5rem; top: 0px; left: 41px;">Login</button>
                 </div>
                 </form>
             </div> 
