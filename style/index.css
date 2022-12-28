@@ -1,0 +1,9 @@
+#register .left {
+  background-image: url("../img/ld.png");
+  background-size: cover;
+  height: 700px;
+}
+
+#register .bg {
+  background-color: #276561;
+}
