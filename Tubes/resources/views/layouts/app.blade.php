@@ -20,14 +20,18 @@
     <style>
         .bgs{
             background-color: #276561;
+
         }
 
         #fixedbutton {
             position: fixed;
-            font-size: 50px;
+            font-size: 30px;
+
             color: white;
             border-radius: 50%;
-            width: 100px;
+            width: 70px;
+            height: 70px;
+            padding-bottom: 50px;
             bottom: 100px;
             right: 100px;
         }

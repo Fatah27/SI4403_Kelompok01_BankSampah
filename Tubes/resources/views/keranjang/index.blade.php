@@ -157,13 +157,13 @@
                                     @csrf
                                     @method('post')
                                 <div class="modal-body">
-                                        <input type="text" name="nama" class="form-control" placeholder="Nama">
-                                        <textarea class="form-control" name="feedback" id="" cols="30" rows="10" placeholder="feedback"></textarea>
+                                        <input type="text" name="nama" class="form-control" placeholder="Nama" required>
+                                        <textarea class="form-control" name="feedback" id="" cols="30" rows="10" required placeholder="feedback"></textarea>
 
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="submit" class="btn btn-primary">Complete Payment</button>
                                 </div>
                                 </form>
                             </div>

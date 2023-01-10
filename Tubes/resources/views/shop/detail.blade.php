@@ -22,7 +22,7 @@
                                 <h5>Quantity</h5>
                                 <input type="number" name="qty" class="form-control" value="1">
 
-                                <button type="submit" class="btn btn-success w-100 mt-2 d-block mx-auto">Masukan Ke keranjang</button>
+                                <button type="submit" class="btn @if(\Illuminate\Support\Facades\Auth::id() == $data->user_id) disabled @endif btn-success w-100 mt-2 d-block mx-auto">Masukan Ke keranjang</button>
                             </div>
                         </form>
                     </div>
@@ -68,7 +68,7 @@
     </div>
 
     <a href="{{route('keranjang.detail')}}" id="fixedbutton" class="btn bgs">
-        <svg width="61" height="63" viewBox="0 0 61 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="30" height="63" viewBox="0 0 61 63" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M30.3946 24.505H36.2846V15.67H45.1196V9.78008H36.2846V0.945129H30.3946V9.78008H21.5597V15.67H30.3946V24.505ZM18.6147 51.0098C15.3752 51.0098 12.7542 53.6603 12.7542 56.8998C12.7542 60.1393 15.3752 62.7898 18.6147 62.7898C21.8542 62.7898 24.5047 60.1393 24.5047 56.8998C24.5047 53.6603 21.8542 51.0098 18.6147 51.0098ZM48.0645 51.0098C44.8251 51.0098 42.204 53.6603 42.204 56.8998C42.204 60.1393 44.8251 62.7898 48.0645 62.7898C51.304 62.7898 53.9545 60.1393 53.9545 56.8998C53.9545 53.6603 51.304 51.0098 48.0645 51.0098ZM21.8542 36.2849H43.7943C46.0031 36.2849 47.9467 35.0775 48.948 33.2516L60.3157 12.6073L55.162 9.78008L43.7943 30.395H23.1205L10.5749 3.89011H0.944824V9.78008H6.83479L17.4367 32.1325L13.461 39.3183C11.3112 43.2645 14.1383 48.0648 18.6147 48.0648H53.9545V42.1749H18.6147L21.8542 36.2849Z" fill="white"/>
         </svg>
     </a>
