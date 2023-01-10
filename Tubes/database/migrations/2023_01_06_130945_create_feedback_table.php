@@ -13,16 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('invoice', function (Blueprint $table) {
+        Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('order')->onDelete('cascade');
+            $table->char('name');
+            $table->text('feedback');
             $table->unsignedBigInteger('sampah_id');
             $table->foreign('sampah_id')->references('id')->on('sampah')->onDelete('cascade');
-            $table->unsignedBigInteger('penjual_id');
-            $table->foreign('penjual_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('total');
-            $table->text('status');
             $table->timestamps();
         });
     }
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('invoice');
+        Schema::dropIfExists('feedback');
     }
 };
