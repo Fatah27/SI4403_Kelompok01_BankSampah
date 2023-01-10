@@ -30,6 +30,12 @@
 
                 <div class="row border mt-3 p-5">
                     <h1>Feedback</h1>
+                    @foreach($feedback as $f)
+                        <div class="card p-5">
+                            <h3>Nama : {{$f->name}}</h3>
+                            <p>Feedback : {{$f->feedback}}</p>
+                        </div>
+                    @endforeach
                 </div>
             </div>
 

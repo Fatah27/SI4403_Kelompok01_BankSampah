@@ -11,4 +11,11 @@ class Invoice extends Model
 
     protected $table  = 'invoice';
 
+    public function sampah(){
+        return $this->belongsTo(Sampah::class , 'sampah_id' , 'id');
+    }
+
+    public function order(){
+        return $this->belongsTo(Order::class, 'order_id', 'id');
+    }
 }

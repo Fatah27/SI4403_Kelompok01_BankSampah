@@ -12,4 +12,8 @@ class Order extends Model
 
     protected $table = 'order';
 
+    public function invoice(){
+        return $this->hasMany(Invoice::class , 'order_id' , 'id');
+    }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Keranjang;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +12,8 @@ class KeranjangController extends Controller
 
     public function detail(){
         $data = Keranjang::where('user_id', Auth::user()->id)->get();
-        return view('keranjang.index' , ['data' => $data]);
+        $order = Order::where('user_id' , Auth::user()->id)->get();
+        return view('keranjang.index' , ['data' => $data , 'order'=>$order]);
     }
     public function post($id, Request $request){
         $data = new Keranjang();
@@ -19,7 +21,10 @@ class KeranjangController extends Controller
         $data->sampah_id = $id;
         $data->status = 'keranjang';
         $data->qty = $request->qty;
+
+
         $data->save();
+
 
         return redirect()->back();
 

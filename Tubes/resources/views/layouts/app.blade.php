@@ -71,7 +71,7 @@
                             </li>
 
                             <li class="nav-item m-2 fw-bold" style="margin-right: 50px !important;">
-                                <a class="text-white fw-bold text-decoration-none" href="">Order</a>
+                                <a class="text-white fw-bold text-decoration-none" href="{{route('order.index')}}">Order</a>
                             </li>
 
                             <li class="nav-item m-2 fw-bold" style="margin-right: 50px !important;">
@@ -104,6 +104,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="{{route('detail')}}">
+                                        Profile
+                                    </a>
+
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

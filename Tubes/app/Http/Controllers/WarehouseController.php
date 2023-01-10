@@ -14,7 +14,6 @@ class WarehouseController extends Controller
     }
 
 
-
     public function add(){
         return view('warehouse.add');
     }
@@ -85,7 +84,6 @@ class WarehouseController extends Controller
     public function delete($id){
         $data = Sampah::find($id);
         $data->delete();
-
         return redirect()->back();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
 use App\Models\Invoice;
 use App\Models\Keranjang;
 use App\Models\Order;
@@ -11,6 +12,32 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+
+    public function index(){
+        $data = Invoice::all()->sortByDesc->where('penjual_id' , Auth::id());
+        return view('order.index',compact('data'));
+    }
+
+    public function terima($id , $sampah , Request $request){
+        $data = new Feedback();
+        $data->name = $request->nama;
+        $data->sampah_id = $sampah;
+        $data->feedback = $request->feedback;
+        $data->save();
+
+        $invoice = Invoice::find($id);
+        $invoice->status = 'diterima';
+        $invoice->update();
+        return redirect()->back();
+    }
+
+    public function kirim($id){
+        $invoice = Invoice::find($id);
+        $invoice->status = 'dikirim';
+        $invoice->update();
+        return redirect()->back();
+
+    }
     public function post(Request $request , $total){
 
         $data = new Order;
@@ -27,16 +54,15 @@ class OrderController extends Controller
         $data->save();
 
         foreach ($request->tes as $x){
-
             $keranjang = Keranjang::find($x);
             $baru = new Invoice;
             $baru->order_id = $data->id;
             $baru->sampah_id = $keranjang->sampah->id;
+            $baru->penjual_id = $keranjang->sampah->user_id;
             $baru->total = $keranjang->qty;
             $baru->status = 'dibayar';
             $baru->save();
             $keranjang->delete();
-
         }
 
         return redirect()->back();

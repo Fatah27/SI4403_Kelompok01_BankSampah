@@ -109,6 +109,72 @@
 
 
     </div>
+
+
+    <div class="container p-5">
+        <h1>My Order</h1>
+        <div class="d-flex flex-warp">
+        @foreach ($order as $x)
+            @foreach($x->invoice as $t)
+            <div class="card m-2" style="width: 20rem;">
+                <div class="card-header h-100 p-3" style="overflow: hidden">
+                    <h3>Invoice Number : INV{{$x->id}}</h3>
+                    <img src="{{asset('/sampah/'.$t->sampah->foto)}}" class="card-img-top h-100" alt="...">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Nama Pemesan : {{$x->full_name}}</h5>
+                    <h5 class="card-title">Nomer Telepon : {{$x->phone_number}}</h5>
+                    <h5 class="card-title">alamat : {{$x->address}}</h5>
+                    <h5 class="card-title">Shipping : {{$x->shipping}}</h5>
+                    <h5 class="card-title">Total Barang : {{$t->total}}</h5>
+                </div>
+                <div class="card-footer">
+                    @if ($t->status == 'dibayar')
+                        <a href="" class="btn btn-secondary disabled w-100" disabled>Belum Dikirim</a>
+                    @elseif($t->status == 'dikirim')
+                        <div class="d-flex">
+                        <a href="" class="btn btn-secondary disabled w-100 m-2" disabled>Dikirim</a>
+                        <a href="" class="btn btn-outline-success w-100 m-2" data-bs-toggle="modal" data-bs-target="#modal{{$t->id}}">Terima Barang</a>
+                        </div>
+                    @elseif($t->status == 'diterima')
+                        <div class="d-flex">
+                            <a href="" class="btn btn-success disabled w-100 m-2" disabled>barang diterima</a>
+                        </div>
+                    @endif
+                </div>
+
+            </div>
+
+
+                    <div class="modal fade" id="modal{{$t->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Sebutkan Feedback</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form action="{{route('order.terima' , ['id'=>$t->id , 'sampah'=>$t->sampah->id])}}" method="post">
+                                    @csrf
+                                    @method('post')
+                                <div class="modal-body">
+                                        <input type="text" name="nama" class="form-control" placeholder="Nama">
+                                        <textarea class="form-control" name="feedback" id="" cols="30" rows="10" placeholder="feedback"></textarea>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+            @endforeach
+        @endforeach
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
@@ -120,7 +186,6 @@
 
         $('#check{{$x->id}}').on('click' , function(){
             var $check{{$x->id}}  = $('#check{{$x->id}}').is(':checked');
-
 
             if($check{{$x->id}})  {
                 total += {{$x->sampah->harga * $x->qty}};

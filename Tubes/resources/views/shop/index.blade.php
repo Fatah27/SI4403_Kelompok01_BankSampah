@@ -2,7 +2,9 @@
 @section('content')
     <div class="container p-5">
         <h1 class="m-3 fs-1 fw-bolder">Kategori</h1>
-        <form action="">
+        <form action="{{route('shop.search')}}" method="get">
+            @csrf
+            @method('get')
             <div class="row">
                 <div class="col">
                     <label for="">Provinsi</label>
@@ -16,7 +18,7 @@
 
                 <div class="col">
                     <label for="">Jenis Sampah</label>
-                    <input type="text" name="jenis_sampah" class="form-control">
+                    <input type="text" name="jenis" class="form-control">
                 </div>
 
                 <div class="col-1">
